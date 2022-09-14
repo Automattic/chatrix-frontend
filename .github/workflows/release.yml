@@ -22,16 +22,20 @@ jobs:
         run: make
 
       - name: Create directory for chatrix release
-        run: cp -r target chatrix-${{ github.ref_name }}
+        run: cp -r target chatrix-frontend
+
+      - name: Remove unnecessary files and directories
+        run: |
+            rm -rf chatrix-frontend/config.dev.json
 
       - name: Create archive for chatrix release
-        run: tar -cvzf chatrix-${{ github.ref_name }}.tar.gz chatrix-${{ github.ref_name }}
+        run: tar -cvzf chatrix-frontend-${{ github.ref_name }}.tar.gz chatrix-frontend
 
       - name: Create release
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
-          artifacts: "chatrix-${{ github.ref_name }}.tar.gz"
+          artifacts: "chatrix-frontend-${{ github.ref_name }}.tar.gz"
           artifactErrorsFailBuild: true
           draft: true
