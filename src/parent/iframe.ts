@@ -18,14 +18,16 @@ import { isMobile } from "./common";
 
 const sizeCollection = {
     "desktop": {
+        "account-setup": { height: "334px", width: "375px" },
+        "timeline": {height: "595px", width: "375px"},
         "login": { height: "480px", width: "375px" },
-        "settings": { height: "595px", width: "375px" },
-        "timeline": {height: "595px", width: "375px"}
+        "settings": { height: "595px", width: "375px" }
     },
     "mobile": {
+        "account-setup": { height: "100vh", width: "100vw" },
+        "timeline": {height: "100vh", width: "100vw"},
         "login": { height: "100vh", width: "100vw" },
         "settings": { height: "100vh", width: "100vw" },
-        "timeline": {height: "100vh", width: "100vw"}
     }
 }
 
