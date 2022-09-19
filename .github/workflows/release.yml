@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build chatrix
-        run: make
+        run: ./scripts/build.sh
 
       - name: Create directory for chatrix release
         run: cp -r target chatrix-frontend
