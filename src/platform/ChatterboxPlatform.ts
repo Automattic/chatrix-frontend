@@ -17,7 +17,7 @@ limitations under the License.
 import { Platform } from "hydrogen-view-sdk";
 import { SessionInfoStorage } from "./SessionInfoStorage";
 
-export class ChatrixPlatform extends Platform {
+export class ChatterboxPlatform extends Platform {
     constructor(options, localStorageKey: string) {
         super(options);
         localStorageKey = localStorageKey ?? "hydrogen_sessions_v1";

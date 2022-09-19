@@ -16,7 +16,7 @@ limitations under the License.
 
 import type { IChatterboxConfig } from "./types/IChatterboxConfig";
 import { createRouter, Navigation } from "hydrogen-view-sdk";
-import { ChatrixPlatform } from "./platform/ChatrixPlatform";
+import { ChatterboxPlatform } from "./platform/ChatterboxPlatform";
 import { RootViewModel } from "./viewmodels/RootViewModel";
 import { RootView } from "./ui/views/RootView";
 import downloadSandboxPath from "hydrogen-view-sdk/download-sandbox.html?url";
@@ -61,7 +61,7 @@ async function main() {
     const config = await fetchConfig();
 
     const localStorageKey = getLocalStorageKey();
-    const platform = new ChatrixPlatform({container: root, assetPaths, config: {}, options: { development: import.meta.env.DEV }}, localStorageKey);
+    const platform = new ChatterboxPlatform({container: root, assetPaths, config: {}, options: { development: import.meta.env.DEV }}, localStorageKey);
     attachLogExportToWindow(platform);
     const navigation = new Navigation(allowsChild);
     platform.setNavigation(navigation);
