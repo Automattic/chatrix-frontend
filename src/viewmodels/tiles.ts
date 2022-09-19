@@ -14,29 +14,20 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import {
-    EncryptionEnabledTile,
-    FileTile,
-    ImageTile,
-    LocationTile,
-    RedactedTile,
-    TextTile,
-    tileClassForEntry,
-    VideoTile
-} from "hydrogen-view-sdk";
+import { TextTile, ImageTile, VideoTile, FileTile, LocationTile, RedactedTile, EncryptionEnabledTile, tileClassForEntry } from "hydrogen-view-sdk";
 
 // Override all the message-tiles to show the display name as "me"
 class ChatterboxTextTile extends TextTile {
     get displayName() {
-        return this.isOwn ? "me" : super.displayName;
+        return this.isOwn? "me" : super.displayName;
     }
 
-    get avatarLetter() {
+    get avatarLetter() { 
         return "";
     }
 
     avatarUrl(size) {
-        if (!this.isOwn) {
+        if(!this.isOwn) {
             return super.avatarUrl(size);
         }
         return this._options.config["avatar"] ?? null;
@@ -45,15 +36,15 @@ class ChatterboxTextTile extends TextTile {
 
 class ChatterboxImageTile extends ImageTile {
     get displayName() {
-        return this.isOwn ? "me" : super.displayName;
+        return this.isOwn? "me" : super.displayName;
     }
-
-    get avatarLetter() {
+    
+    get avatarLetter() { 
         return "";
     }
 
     avatarUrl(size) {
-        if (!this.isOwn) {
+        if(!this.isOwn) {
             return super.avatarUrl(size);
         }
         return this._options.config["avatar"] ?? null;
@@ -62,15 +53,15 @@ class ChatterboxImageTile extends ImageTile {
 
 class ChatterboxVideoTile extends VideoTile {
     get displayName() {
-        return this.isOwn ? "me" : super.displayName;
+        return this.isOwn? "me" : super.displayName;
     }
-
-    get avatarLetter() {
+    
+    get avatarLetter() { 
         return "";
     }
 
     avatarUrl(size) {
-        if (!this.isOwn) {
+        if(!this.isOwn) {
             return super.avatarUrl(size);
         }
         return this._options.config["avatar"] ?? null;
@@ -79,15 +70,15 @@ class ChatterboxVideoTile extends VideoTile {
 
 class ChatterboxFileTile extends FileTile {
     get displayName() {
-        return this.isOwn ? "me" : super.displayName;
+        return this.isOwn? "me" : super.displayName;
     }
-
-    get avatarLetter() {
+    
+    get avatarLetter() { 
         return "";
     }
 
     avatarUrl(size) {
-        if (!this.isOwn) {
+        if(!this.isOwn) {
             return super.avatarUrl(size);
         }
         return this._options.config["avatar"] ?? null;
@@ -96,15 +87,15 @@ class ChatterboxFileTile extends FileTile {
 
 class ChatterboxLocationTile extends LocationTile {
     get displayName() {
-        return this.isOwn ? "me" : super.displayName;
+        return this.isOwn? "me" : super.displayName;
     }
-
-    get avatarLetter() {
+    
+    get avatarLetter() { 
         return "";
     }
 
     avatarUrl(size) {
-        if (!this.isOwn) {
+        if(!this.isOwn) {
             return super.avatarUrl(size);
         }
         return this._options.config["avatar"] ?? null;
@@ -113,15 +104,15 @@ class ChatterboxLocationTile extends LocationTile {
 
 class ChatterboxRedactedTile extends RedactedTile {
     get displayName() {
-        return this.isOwn ? "me" : super.displayName;
+        return this.isOwn? "me" : super.displayName;
     }
-
-    get avatarLetter() {
+    
+    get avatarLetter() { 
         return "";
     }
 
     avatarUrl(size) {
-        if (!this.isOwn) {
+        if(!this.isOwn) {
             return super.avatarUrl(size);
         }
         return this._options.config["avatar"] ?? null;
