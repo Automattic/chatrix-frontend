@@ -1,9 +1,9 @@
 {
-  "name": "chatrix",
-  "version": "0.1.0",
-  "description": "Chatrix lets you securely embed the Hydrogen matrix client on any website!",
-  "repository": "git@github.com:Automattic/chatrix.git",
-  "author": "matrix.org, Automattic",
+  "name": "chatterbox",
+  "version": "0.5.1",
+  "description": "Chatterbox lets you securely embed the Hydrogen matrix client on any website!",
+  "repository": "git@github.com:vector-im/chatterbox.git",
+  "author": "matrix.org",
   "license": "Apache-2.0",
   "scripts": {
     "start": "vite",
