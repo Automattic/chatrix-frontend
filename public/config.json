@@ -14,5 +14,6 @@
     "invite_user": "@botuser:your-homeserver.com",
     "encrypt_room": false,
     "avatar": "https://link_to_avatar/avatar.png",
-    "disable_composer_until_operator_join": false 
+    "disable_composer_until_operator_join": false,
+    "login_methods": ["password", "sso"]
 }
