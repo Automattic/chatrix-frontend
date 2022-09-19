@@ -17,7 +17,7 @@ limitations under the License.
 import { isMobile } from "./common";
 import { toggleIframe } from "./iframe";
 
-const parentHostRoot = (document.querySelector("#chatterbox-script") as HTMLScriptElement).src;
+const parentHostRoot = ( document.querySelector("#chatterbox-script") as HTMLScriptElement).src;
 const hostRoot = new URL(parentHostRoot).origin;
 
 export function loadStartButton() {

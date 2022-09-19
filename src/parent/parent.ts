@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { removeIframe, resizeIframe, toggleIframe } from "./iframe";
+import { resizeIframe, toggleIframe, removeIframe } from "./iframe";
 import { loadStartButton } from "./load";
 import "./parent-style.css";
 

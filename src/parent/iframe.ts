@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import {isMobile} from "./common";
+import { isMobile } from "./common";
 
 const sizeCollection = {
     "desktop": {
@@ -35,13 +35,13 @@ export function toggleIframe() {
     if (iframeElement.style.display !== "none") {
         iframeElement.style.display = "none";
         document.querySelector(".start-chat-btn").classList.remove("start-background-minimized");
-        iframeElement.contentWindow.postMessage({ action: "minimize" }, "*");
+        iframeElement.contentWindow.postMessage({ action: "minimize" }, "*");;
         if (isMobile()) {
             startButtonDiv.style.display = "block";
         }
     }
     else {
-        iframeElement.contentWindow.postMessage({ action: "maximize" }, "*");
+        iframeElement.contentWindow.postMessage({ action: "maximize" }, "*");;
         iframeElement.style.display = "block";
         document.querySelector(".start-chat-btn").classList.add("start-background-minimized");
         if (isMobile()) {
@@ -54,17 +54,11 @@ export function resizeIframe(data) {
     const { view } = data;
     const type = isMobile()? "mobile": "desktop";
     const size = sizeCollection[type][view];
-    if (!size) {
-        return;
-    }
-    const {height, width} = size;
+    if (!size) { return; }
+    const { height, width } = size;
     const iframeElement = document.querySelector(".chatterbox-iframe") as HTMLIFrameElement;
-    if (height) {
-        iframeElement.style.height = height;
-    }
-    if (width) {
-        iframeElement.style.width = width;
-    }
+    if (height) { iframeElement.style.height = height; }
+    if (width) { iframeElement.style.width = width; }
 }
 
 export function removeIframe() {
