@@ -16,7 +16,7 @@ limitations under the License.
 
 import { TemplateView } from "hydrogen-view-sdk";
 import { RootViewModel } from "../../viewmodels/RootViewModel";
-import { ChatrixView } from "./ChatrixView";
+import { ChatterboxView } from "./ChatterboxView";
 import { LoginView } from "./LoginView";
 import { SettingsView } from "./SettingsView";
 
@@ -34,7 +34,7 @@ export class RootView extends TemplateView<RootViewModel> {
                 case "settings":
                     return new SettingsView(vm.settingsViewModel);
                 case "timeline":
-                    return new ChatrixView(vm.chatrixViewModel);
+                    return new ChatterboxView(vm.chatterboxViewModel);
             }
             return null;
         })

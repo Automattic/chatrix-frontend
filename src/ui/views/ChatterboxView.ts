@@ -15,16 +15,16 @@ limitations under the License.
 */
 
 import { AvatarView, MessageComposer, TemplateView, TimelineView, viewClassForTile } from "hydrogen-view-sdk";
-import { ChatrixViewModel } from "../../viewmodels/ChatrixViewModel";
+import { ChatterboxViewModel } from "../../viewmodels/ChatterboxViewModel";
 import { LoadingView } from "./LoadingView";
 
-export class ChatrixView extends TemplateView<ChatrixViewModel> {
+export class ChatterboxView extends TemplateView<ChatterboxViewModel> {
     constructor(value) {
         super(value);
     }
 
     render(t) {
-        return t.div({className: "ChatrixView"}, [
+        return t.div({className: "ChatterboxView"}, [
             t.mapView(
                 (vm) => (vm.roomViewModel ? vm : null),
                 (vm) => (vm ? new RoomHeaderView(vm) : null)
@@ -41,12 +41,12 @@ export class ChatrixView extends TemplateView<ChatrixViewModel> {
     }
 }
 
-class RoomHeaderView extends TemplateView<ChatrixViewModel> {
+class RoomHeaderView extends TemplateView<ChatterboxViewModel> {
     constructor(value) {
         super(value);
     }
 
-    render(t, vm: ChatrixViewModel) {
+    render(t, vm: ChatterboxViewModel) {
         const avatar = vm.customAvatarURL ? t.img({
             className: "avatar",
             src: vm.customAvatarURL

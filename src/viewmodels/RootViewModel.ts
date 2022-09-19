@@ -16,7 +16,7 @@ limitations under the License.
 
 import { Client, createRouter, LoadStatus, Navigation, Platform, RoomStatus, ViewModel } from "hydrogen-view-sdk";
 import { IChatterboxConfig } from "../types/IChatterboxConfig";
-import { ChatrixViewModel } from "./ChatrixViewModel";
+import { ChatterboxViewModel } from "./ChatterboxViewModel";
 import "hydrogen-view-sdk/style.css";
 import { MessageFromParent } from "../observables/MessageFromParent";
 import { LoginViewModel } from "./LoginViewModel";
@@ -27,7 +27,7 @@ type Options = { platform: typeof Platform, navigation: typeof Navigation, urlCr
 export class RootViewModel extends ViewModel {
     private _config: IChatterboxConfig;
     private _client: typeof Client;
-    private _chatrixViewModel?: ChatrixViewModel;
+    private _chatterboxViewModel?: ChatterboxViewModel;
     private _loginViewModel?: LoginViewModel;
     private _settingsViewModel?: SettingsViewModel;
     private _activeSection?: string;
@@ -49,10 +49,10 @@ export class RootViewModel extends ViewModel {
     }
 
     minimizeChatrix() {
-        this._chatrixViewModel = this.disposeTracked(this._chatrixViewModel);
-        this._accountSetupViewModel = this.disposeTracked(this._chatrixViewModel);
+        this._chatterboxViewModel = this.disposeTracked(this._chatterboxViewModel);
+        this._accountSetupViewModel = this.disposeTracked(this._chatterboxViewModel);
         this._activeSection = "";
-        this.emitChange("chatrixViewModel");
+        this.emitChange("chatterboxViewModel");
     }
 
     async start() {
@@ -73,8 +73,8 @@ export class RootViewModel extends ViewModel {
         this.navigation.push("login");
     }
 
-    get chatrixViewModel() {
-        return this._chatrixViewModel;
+    get chatterboxViewModel() {
+        return this._chatterboxViewModel;
     }
 
     private _showLogin() {
@@ -156,8 +156,8 @@ export class RootViewModel extends ViewModel {
 
     private async _showTimeline(loginPromise: Promise<void>) {
         this._activeSection = "timeline";
-        if (!this._chatrixViewModel) {
-            this._chatrixViewModel = this.track(new ChatrixViewModel(
+        if (!this._chatterboxViewModel) {
+            this._chatterboxViewModel = this.track(new ChatterboxViewModel(
                 this.childOptions({
                     client: this._client,
                     config: this._config,
@@ -165,7 +165,7 @@ export class RootViewModel extends ViewModel {
                     loginPromise,
                 })
             ));
-            await this._chatrixViewModel.load();
+            await this._chatterboxViewModel.load();
             if (!this._isWatchingNotificationCount) {
                 // for when chatterbox is loaded initially
                 this._watchNotificationCount();

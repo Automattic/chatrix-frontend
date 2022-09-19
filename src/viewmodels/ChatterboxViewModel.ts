@@ -17,7 +17,7 @@ limitations under the License.
 import { RoomViewModel, ViewModel } from "hydrogen-view-sdk";
 import { createCustomTileClassForEntry } from "./tiles";
 
-export class ChatrixViewModel extends ViewModel {
+export class ChatterboxViewModel extends ViewModel {
     private _roomViewModel?: typeof RoomViewModel;
     private _loginPromise: Promise<void>;
 
