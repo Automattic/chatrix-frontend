@@ -30,7 +30,7 @@ const sizeCollection = {
 }
 
 export function toggleIframe() {
-    const iframeElement = document.querySelector(".chatrix-iframe") as HTMLIFrameElement;
+    const iframeElement = document.querySelector(".chatterbox-iframe") as HTMLIFrameElement;
     const startButtonDiv = document.querySelector(".start") as HTMLDivElement;
     if (iframeElement.style.display !== "none") {
         iframeElement.style.display = "none";
@@ -58,7 +58,7 @@ export function resizeIframe(data) {
         return;
     }
     const {height, width} = size;
-    const iframeElement = document.querySelector(".chatrix-iframe") as HTMLIFrameElement;
+    const iframeElement = document.querySelector(".chatterbox-iframe") as HTMLIFrameElement;
     if (height) {
         iframeElement.style.height = height;
     }
@@ -68,7 +68,7 @@ export function resizeIframe(data) {
 }
 
 export function removeIframe() {
-    const iframeElement = document.querySelector(".chatrix-iframe") as HTMLIFrameElement;
+    const iframeElement = document.querySelector(".chatterbox-iframe") as HTMLIFrameElement;
     iframeElement?.remove();
     const startButton = document.querySelector(".start") as HTMLDivElement;
     startButton.remove();

@@ -27,7 +27,7 @@ const assetPaths = {
     worker: workerPath,
 };
 
-const rootDivId = "#chatrix";
+const rootDivId = "#chatterbox";
 
 async function fetchConfig(): Promise<IChatterboxConfig> {
     const queryParams = new URLSearchParams(window.location.search);
@@ -55,7 +55,7 @@ async function main() {
     hideOnError();
     const root = document.querySelector(rootDivId) as HTMLDivElement;
     if (!root) {
-        throw new Error("No element with id as 'chatrix' found!");
+        throw new Error("No element with id as 'chatterbox' found!");
     }
     root.className = "hydrogen";
     const config = await fetchConfig();

@@ -17,7 +17,7 @@ limitations under the License.
 import { isMobile } from "./common";
 import { toggleIframe } from "./iframe";
 
-const parentHostRoot = (document.querySelector("#chatrix-script") as HTMLScriptElement).src;
+const parentHostRoot = (document.querySelector("#chatterbox-script") as HTMLScriptElement).src;
 const hostRoot = new URL(parentHostRoot).origin;
 
 export function loadStartButton() {
@@ -29,9 +29,9 @@ export function loadStartButton() {
     document.body.appendChild(container);
     if (new URLSearchParams(window.location.search).get("loginToken")) {
         loadIframe(false);
-    } else if (window.localStorage.getItem("chatrix-should-load-in-background")) {
+    } else if (window.localStorage.getItem("chatterbox-should-load-in-background")) {
         /**
-         * If chatrix made it to the timeline before, load the chatrix app in background.
+         * If chatterbox made it to the timeline before, load the chatterbox app in background.
          * This will let us watch for new messages and show a notification badge as needed.
          */
         loadIframe(true);
@@ -63,17 +63,17 @@ function loadCSS() {
 function loadIframe(minimized = false) {
     const iframe = document.createElement("iframe");
 
-    let htmlLocation = (window as any).CHATRIX_HTML_LOCATION;
+    let htmlLocation = (window as any).CHATTERBOX_HTML_LOCATION;
     if (!htmlLocation) {
-        htmlLocation = "../chatrix.html";
+        htmlLocation = "../chatterbox.html";
     }
 
-    const configLocation = (window as any).CHATRIX_CONFIG_LOCATION;
+    const configLocation = (window as any).CHATTERBOX_CONFIG_LOCATION;
     if (!configLocation) {
-        throw new Error("CHATRIX_CONFIG_LOCATION is not set");
+        throw new Error("CHATTERBOX_CONFIG_LOCATION is not set");
     }
 
-    const localStorageKey = (window as any).CHATRIX_LOCAL_STORAGE_KEY || null;
+    const localStorageKey = (window as any).CHATTERBOX_LOCAL_STORAGE_KEY || null;
 
     const urlParams = new URLSearchParams(window.location.search);
     const loginToken = urlParams.get("loginToken");
@@ -84,7 +84,7 @@ function loadIframe(minimized = false) {
         `${htmlLocation}?config=${configLocation}${minimized? "&minimized=true": ""}${loginToken? "&loginToken="+encodeURIComponent(loginToken): ""}${localStorageKey? "&localStorageKey="+encodeURIComponent(localStorageKey): ""}`,
         hostRoot
     ).href;
-    iframe.className = "chatrix-iframe";
+    iframe.className = "chatterbox-iframe";
     document.body.appendChild(iframe);
     (window as any).isIframeLoaded = true;
     document .querySelector(".start-chat-btn") .classList.add("start-background-minimized");
