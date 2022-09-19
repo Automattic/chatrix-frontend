@@ -48,7 +48,7 @@ export class RootViewModel extends ViewModel {
         this._messageFromParent.on("minimize", () => this.navigation.push("minimize"));
     }
 
-    minimizeChatrix() {
+    minimizeChatterbox() {
         this._chatterboxViewModel = this.disposeTracked(this._chatterboxViewModel);
         this._accountSetupViewModel = this.disposeTracked(this._chatterboxViewModel);
         this._activeSection = "";
@@ -151,7 +151,7 @@ export class RootViewModel extends ViewModel {
         this.navigation.observe("login").subscribe(() => this._showLogin());
         this.navigation.observe("settings").subscribe(() => this._showSettings());
         this.navigation.observe("timeline").subscribe((loginPromise) => this._showTimeline(loginPromise));
-        this.navigation.observe("minimize").subscribe(() => this.minimizeChatrix());
+        this.navigation.observe("minimize").subscribe(() => this.minimizeChatterbox());
     }
 
     private async _showTimeline(loginPromise: Promise<void>) {
