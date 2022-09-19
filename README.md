@@ -33,9 +33,9 @@ following snippet before the closing `</body>` tag:
 ```html
 
 <script>
-	window.CHATRIX_CONFIG_LOCATION = "path_to_config";
+	window.CHATTERBOX_CONFIG_LOCATION = "path_to_config";
 </script>
-<script src="<root>/assets/parent.js" type="module" id="chatrix-script"></script>
+<script src="<root>/assets/parent.js" type="module" id="chatterbox-script"></script>
 ```
 
 ## Testing
