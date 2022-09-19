@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import { Client, createRouter, LoadStatus, Navigation, Platform, RoomStatus, ViewModel } from "hydrogen-view-sdk";
-import { IChatrixConfig } from "../types/IChatrixConfig";
+import { IChatterboxConfig } from "../types/IChatterboxConfig";
 import { ChatrixViewModel } from "./ChatrixViewModel";
 import "hydrogen-view-sdk/style.css";
 import { MessageFromParent } from "../observables/MessageFromParent";
@@ -25,7 +25,7 @@ import { SettingsViewModel } from "./SettingsViewModel";
 type Options = { platform: typeof Platform, navigation: typeof Navigation, urlCreator: ReturnType<typeof createRouter>, startMinimized: boolean, loginToken: string };
 
 export class RootViewModel extends ViewModel {
-    private _config: IChatrixConfig;
+    private _config: IChatterboxConfig;
     private _client: typeof Client;
     private _chatrixViewModel?: ChatrixViewModel;
     private _loginViewModel?: LoginViewModel;
@@ -36,7 +36,7 @@ export class RootViewModel extends ViewModel {
     private _loginToken: string;
     private _isWatchingNotificationCount: boolean;
 
-    constructor(config: IChatrixConfig, options: Options) {
+    constructor(config: IChatterboxConfig, options: Options) {
         super(options);
         this._startMinimized = options.startMinimized;
         this._config = config;

@@ -9,7 +9,7 @@ fork of [Chatterbox](https://github.com/vector-im/chatterbox).
     yarn install
     ```
 3) Modify config.json in `public` directory with your homeserver details.  
-   (See [`types/IChatrixConfig.ts`](https://github.com/Automattic/chatrix/blob/main/src/types/IChatrixConfig.ts)
+   (See [`types/IChatterboxConfig.ts`](https://github.com/Automattic/chatrix/blob/main/src/types/IChatterboxConfig.ts)
    for the format)
 4) Start develop server:
     ```properties
