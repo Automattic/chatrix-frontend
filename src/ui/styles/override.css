@@ -32,11 +32,11 @@ todo: this style should actually be in hydrogen-web
     box-sizing: border-box;
 }
 
-.ChatterboxView .MessageComposer_input > textarea {
+.ChatterboxView .MessageComposer_input>textarea {
     background: #FFFFFF;
 }
 
-.ChatterboxView .MessageComposer_input > textarea:focus-visible {
+.ChatterboxView .MessageComposer_input>textarea:focus-visible {
     outline: none;
 }
 
@@ -46,6 +46,5 @@ todo: this style should actually be in hydrogen-web
 
 .ChatterboxView .MessageComposer {
     display: flex;
-    margin-bottom: 8px;
     justify-content: center;
 }
