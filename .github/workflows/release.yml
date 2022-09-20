@@ -3,7 +3,7 @@ name: Create a release
 
 on:
   # Allow manual trigger from the Actions tab:
-  # https://github.com/Automattic/chatrix/actions/workflows/release.yml
+  # https://github.com/Automattic/chatrix-frontend/actions/workflows/release.yml
   workflow_dispatch:
 
   push:
@@ -18,24 +18,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Build chatrix
-        run: make
+      - name: Build
+        run: yarn install && yarn build
 
-      - name: Create directory for chatrix release
-        run: cp -r target chatrix-frontend
+      - name: Create directory for release
+        run: cp -r target chatterbox
 
-      - name: Remove unnecessary files and directories
-        run: |
-            rm -rf chatrix-frontend/config.dev.json
-
-      - name: Create archive for chatrix release
-        run: tar -cvzf chatrix-frontend-${{ github.ref_name }}.tar.gz chatrix-frontend
+      - name: Create archive for release
+        run: tar -cvzf chatterbox-${{ github.ref_name }}.tar.gz chatterbox
 
       - name: Create release
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref_name }}
-          artifacts: "chatrix-frontend-${{ github.ref_name }}.tar.gz"
+          artifacts: "chatterbox-${{ github.ref_name }}.tar.gz"
           artifactErrorsFailBuild: true
           draft: true

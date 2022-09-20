@@ -14,12 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { removeIframe, resizeIframe, toggleIframe } from "./iframe";
+import { resizeIframe, toggleIframe, removeIframe } from "./iframe";
 import { loadStartButton } from "./load";
 import "./parent-style.css";
 
 (window as any).isIframeLoaded = false;
-(window as any).__chatrix = () => (document.querySelector(".chatrix-iframe") as HTMLIFrameElement)?.contentWindow;
+(window as any).__chatterbox = () => (document.querySelector(".chatterbox-iframe") as HTMLIFrameElement)?.contentWindow;
 
 function setUnreadCount(count) {
     const notification = document.querySelector(".notification-badge") as HTMLSpanElement;
@@ -37,10 +37,10 @@ window.addEventListener("message", event => {
     switch (action) {
         case "resize-iframe":
             if (event.data.view === "timeline") {
-                // Chatrix has made it to the timeline!
-                // Store this is info in localStorage so that we know to load chatrix in background
+                // Chatterbox has made it to the timeline!
+                // Store this is info in localStorage so that we know to load chatterbox in background
                 // in subsequent visits.
-                window.localStorage.setItem("chatrix-should-load-in-background", "true");
+                window.localStorage.setItem("chatterbox-should-load-in-background", "true");
             }
             resizeIframe(event.data);
             break;

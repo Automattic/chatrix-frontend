@@ -14,28 +14,22 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import { Client, ViewModel } from "hydrogen-view-sdk";
-import "hydrogen-view-sdk/style.css";
+import { ViewModel } from "hydrogen-view-sdk";
 import { IChatterboxConfig } from "../types/IChatterboxConfig";
 
-export class SettingsViewModel extends ViewModel {
-    // @ts-ignore
-    private readonly _config: IChatterboxConfig;
-    private _client: typeof Client;
+export class FooterViewModel extends ViewModel {
+    private _config: IChatterboxConfig;
 
     constructor(options) {
         super(options);
-        const {config, client} = options;
-        this._config = config;
-        this._client = client;
+        this._config = options.config;
     }
 
-    close() {
-        this.navigation.push("timeline");
+    get chatterboxLink(): string {
+        return this._config.footer?.chatterbox_link ?? null;
     }
 
-    async logout() {
-        await this._client.startLogout(this._client.sessionId);
-        this.navigation.push("login");
+    get matrixLink(): string {
+        return this._config.footer?.matrix_link ?? null;
     }
 }

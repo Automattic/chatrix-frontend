@@ -16,7 +16,8 @@ limitations under the License.
 
 import { TemplateView } from "hydrogen-view-sdk";
 import { RootViewModel } from "../../viewmodels/RootViewModel";
-import { ChatrixView } from "./ChatrixView";
+import { AccountSetupView } from "./AccountSetupView";
+import { ChatterboxView } from "./ChatterboxView";
 import { LoginView } from "./LoginView";
 import { SettingsView } from "./SettingsView";
 
@@ -28,13 +29,15 @@ export class RootView extends TemplateView<RootViewModel> {
     render(t, vm: RootViewModel) {
         return t.mapView(vm => vm.activeSection, section => {
             (window as any).sendViewChangeToParent(section);
-            switch (section) {
+            switch(section) {
+                case "account-setup":
+                    return new AccountSetupView(vm.accountSetupViewModel);
+                case "timeline":
+                    return new ChatterboxView(vm.chatterboxViewModel);
                 case "login":
                     return new LoginView(vm.loginViewModel);
                 case "settings":
                     return new SettingsView(vm.settingsViewModel);
-                case "timeline":
-                    return new ChatrixView(vm.chatrixViewModel);
             }
             return null;
         })

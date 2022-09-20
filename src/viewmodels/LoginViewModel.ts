@@ -17,11 +17,11 @@ limitations under the License.
 import { Client, ViewModel } from "hydrogen-view-sdk";
 import "hydrogen-view-sdk/style.css";
 import { PasswordLoginViewModel } from "./PasswordLoginViewModel";
-import { IChatrixConfig } from "../types/IChatrixConfig";
+import { IChatterboxConfig } from "../types/IChatterboxConfig";
 import { SingleSignOnViewModel } from "./SingleSignOnViewModel";
 
 export class LoginViewModel extends ViewModel {
-    private readonly _config: IChatrixConfig;
+    private readonly _config: IChatterboxConfig;
     private _client: typeof Client;
     private _welcomeMessageHeading: string;
     private _welcomeMessageText: string;

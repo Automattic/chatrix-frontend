@@ -1,29 +1,29 @@
 /* CSS styles overridden from Hydrogen */
 
-#chatrix .Timeline {
+#chatterbox .Timeline {
     flex-grow: 2;
     padding-bottom: 15px;
 }
 
-#chatrix .Timeline_messageAvatar {
+#chatterbox .Timeline_messageAvatar {
     pointer-events: none;
 }
 
 /*
 todo: this style should actually be in hydrogen-web
 */
-#chatrix .popupContainer {
+#chatterbox .popupContainer {
     position: fixed;
     top: 0;
     left: 0;
 }
 
-#chatrix .MessageComposer_input:focus-within {
+#chatterbox .MessageComposer_input:focus-within {
     outline: 1px solid #5C56F5;
     box-shadow: 0px 0px 0px 4px rgba(92, 86, 245, 0.1);
 }
 
-.ChatrixView .MessageComposer_input {
+.ChatterboxView .MessageComposer_input {
     background: #FFFFFF;
     border: 1px solid #E3E8F0;
     border-radius: 8px;
@@ -32,20 +32,19 @@ todo: this style should actually be in hydrogen-web
     box-sizing: border-box;
 }
 
-.ChatrixView .MessageComposer_input > textarea {
+.ChatterboxView .MessageComposer_input>textarea {
     background: #FFFFFF;
 }
 
-.ChatrixView .MessageComposer_input > textarea:focus-visible {
+.ChatterboxView .MessageComposer_input>textarea:focus-visible {
     outline: none;
 }
 
-.ChatrixView .MessageComposer_input .send {
+.ChatterboxView .MessageComposer_input .send {
     background-color: var(--main-bg-color);
 }
 
-.ChatrixView .MessageComposer {
+.ChatterboxView .MessageComposer {
     display: flex;
-    margin-bottom: 8px;
     justify-content: center;
 }
